@@ -76,7 +76,7 @@ paths:
       tags:
       - "building"
       summary: "Update a building with a specific building ID"
-      opreationId: "patchBuildingById"
+      operationId: "patchBuildingById"
       consumes:
       - "application/json"
       responses:
@@ -111,14 +111,15 @@ paths:
           schema:
             $ref: "#/definitions/Sensor"
   /sensor/{sensorId}:
-    tags:
-    - "sensor"
-    summary: "Deletes a sensor"
-    operationId: "deleteSensor"
-    produces:
-    - "application/json"
-    parameters:
-    - name: "sensorId"
+    get:
+      tags:
+      - "sensor"
+      summary: "Deletes a sensor"
+      operationId: "deleteSensor"
+      produces:
+      - "application/json"
+      parameters:
+      - name: "sensorId"
         in: "path"
         description: "Sensor id to delete"
         required: true
@@ -130,20 +131,21 @@ paths:
         "404":
           description: "Sensor not found"
   /sensor/findAllByBuilding/{buildingId}:
-    tags:
-    - "sensor"
-    summary: "Finds all sensors in a specific building"
-    operationId: "findSensorsByBuldingId"
-    produces:
-    - "application/json"
-    parameters:
-    - id: "buildingId"
-      in: "path"
-      description: "ID of building from which to return all sensors"
-      required: true
-      type: "string"
-      format: "string"
-    responses:
+    get:
+      tags:
+      - "sensor"
+      summary: "Finds all sensors in a specific building"
+      operationId: "findSensorsByBuldingId"
+      produces:
+      - "application/json"
+      parameters:
+      - name: "buildingId"
+        in: "path"
+        description: "ID of building from which to return all sensors"
+        required: true
+        type: "string"
+        format: "string"
+      responses:
         "200":
           description: "successful operation"
           schema:
@@ -153,14 +155,15 @@ paths:
         "404":
           description: "Sensor not found"
   /sensor/findByState:
-    tags:
-    - "sensor"
-    summary: "Finds all sensors in a certain state(s)"
-    operationId: "findSensorsByStates"
-    produces:
-    - "application/json"
-    parameters:
-    - name: "state"
+    get:
+      tags:
+      - "sensor"
+      summary: "Finds all sensors in a certain state(s)"
+      operationId: "findSensorsByStates"
+      produces:
+      - "application/json"
+      parameters:
+      - name: "state"
         in: "query"
         description: "states to filter by"
         required: true
@@ -168,7 +171,7 @@ paths:
         items:
           type: "string"
         collectionFormat: "multi"
-        responses:
+      responses:
         "200":
           description: "successful operation"
           schema:
