@@ -31,6 +31,8 @@ paths:
         schema:
           $ref: "#/definitions/Building"
       responses:
+        "200":
+          description: "Successful operation"
         "405":
           description: "Invalid input"
     get:
@@ -143,7 +145,7 @@ paths:
         in: "path"
         description: "ID of building from which to return all sensors"
         required: true
-        type: "string"
+        type: "array"
         format: "string"
       responses:
         "200":
